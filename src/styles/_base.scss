@@ -10,3 +10,74 @@ For example:
 @import './variables/components';
 @import './themes/default';
 */
+
+@mixin maring-and-padding-spacing( $spacing ) {
+  @for $i from 1 to 11 {
+     // Margin
+     %margin-#{$i}x { margin: $spacing * $i; }
+    
+     %margin-top-#{$i}x, 
+     %margin-vertical-#{$i}x { margin-top: $spacing * $i; }
+    
+     %margin-bottom-#{$i}x,
+     %margin-vertical-#{$i}x { margin-bottom: $spacing * $i; }
+    
+     %margin-left-#{$i}x,
+     %margin-horizontal-#{$i}x { margin-left: $spacing * $i; }
+    
+     %margin-right-#{$i}x,
+     %margin-horizontal-#{$i}x { margin-right: $spacing * $i; }
+    
+     // Padding
+     %padding-#{$i}x { padding: $spacing * $i; }
+    
+     %padding-top-#{$i}x,
+     %padding-vertical-#{$i}x { padding-top: $spacing * $i; }
+    
+     %padding-bottom-#{$i}x,
+     %padding-vertical-#{$i}x{ padding-bottom: $spacing * $i; }
+    
+     %padding-left-#{$i}x,
+     %padding-horizontal-#{$i}x { padding-left: $spacing * $i; }
+    
+     %padding-right-#{$i}x,
+     %padding-horizontal-#{$i}x{ padding-right: $spacing * $i; }
+    }
+}
+
+$spacing: 5px;
+@include maring-and-padding-spacing($spacing);
+
+.block {
+  border: 1px solid #afb4bf;
+  @extend %margin-top-1x;
+  background-color: #eceff5;
+  font-family: American Typewriter;
+  background-color: #eceff5;
+  text-align: center; 
+}
+
+.margin-right-1x { @extend %margin-right-1x; }
+.margin-right-2x { @extend %margin-right-2x; }
+.margin-right-3x { @extend %margin-right-3x; }
+.margin-right-4x { @extend %margin-right-4x; }
+.margin-right-5x { @extend %margin-right-5x; }
+
+.margin-left-1x { @extend %margin-left-1x; }
+.margin-left-2x { @extend %margin-left-2x; }
+.margin-left-3x { @extend %margin-left-3x; }
+.margin-left-4x { @extend %margin-left-4x; }
+.margin-left-5x { @extend %margin-left-5x; }
+
+.padding-right-1x { @extend %padding-right-1x; }
+.padding-right-2x { @extend %padding-right-2x; }
+.padding-right-3x { @extend %padding-right-3x; }
+.padding-right-4x { @extend %padding-right-4x; }
+.padding-right-5x { @extend %padding-right-5x; }
+
+.padding-left-1x { @extend %padding-left-1x; }
+.padding-left-2x { @extend %padding-left-2x; }
+.padding-left-3x { @extend %padding-left-3x; }
+.padding-left-4x { @extend %padding-left-4x; }
+.padding-left-5x { @extend %padding-left-5x; }
+
