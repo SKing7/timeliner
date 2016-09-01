@@ -6,5 +6,9 @@ import { connect } from 'react-redux'
     component - in this case, the counter:   */
 
 import AddProject from 'components/AddProject'
+import { addAction } from '../modules/AddProject'
 
-export default connect()(AddProject)
+const mapDispatchToProps = {
+    addAction
+}
+export default connect(null, mapDispatchToProps)(AddProject)
