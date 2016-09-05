@@ -15,22 +15,32 @@ class AddProject extends React.Component {
 
         addAction({
             name: v,
-            desc: ''
+            desc: this.refs.projectDescInputNode.value
         });
     }
     render () {
 
         return (
-          <div>
-              <form className="form-inline">
-                  <div className="form-group">
-                      <label>项目名</label>
-                      <input type="text" className="form-control margin-left-2x" placeholder="xxxx" ref="projectInputNode"/>
-                  </div>
-                  <button type="submit" className="btn btn-primary margin-left-1x" onClick={this.submitHandler.bind(this)}>提交</button>
-              </form>
-          </div>
-          )
+            <form className="form-horizontal">
+              <div className="form-group">
+                <label className="col-sm-2 control-label">项目名</label>
+                <div className="col-sm-4">
+                  <input type="text" className="form-control" ref="projectInputNode" placeholder="Project Name"/>
+                </div>
+              </div>
+              <div className="form-group">
+                <label className="col-sm-2 control-label">项目描述</label>
+                <div className="col-sm-4">
+                  <input type="text" className="form-control" ref="projectDescInputNode"/>
+                </div>
+              </div>
+              <div className="form-group">
+                <div className="col-sm-offset-2 col-sm-4">
+                  <button type="submit" className="btn btn-default" onClick={this.submitHandler.bind(this)}>提交</button>
+                </div>
+              </div>
+            </form>
+        )
     }
 }
 

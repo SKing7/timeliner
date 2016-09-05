@@ -69,6 +69,12 @@ $spacing: 5px;
 .margin-left-4x { @extend %margin-left-4x; }
 .margin-left-5x { @extend %margin-left-5x; }
 
+.margin-top-1x { @extend %margin-top-1x; }
+.margin-top-2x { @extend %margin-top-2x; }
+.margin-top-3x { @extend %margin-top-3x; }
+.margin-top-4x { @extend %margin-top-4x; }
+.margin-top-5x { @extend %margin-top-5x; }
+
 .padding-right-1x { @extend %padding-right-1x; }
 .padding-right-2x { @extend %padding-right-2x; }
 .padding-right-3x { @extend %padding-right-3x; }

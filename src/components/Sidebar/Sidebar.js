@@ -24,6 +24,9 @@ class Header extends React.Component {
               <li>
                   <Link activeClassName={classes.active} to="/viewProjectList"><i className="fa fa-fw"></i>查看项目列表</Link>
               </li>
+              <li>
+                  <Link activeClassName={classes.active} to="/schedule/"><i className="fa fa-fw"></i>排期</Link>
+              </li>
             </ul>
         </div>)
     }

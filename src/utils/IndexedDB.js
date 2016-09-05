@@ -16,8 +16,15 @@ class IndexedDB {
     openDb() {
     }
     add(table, obj) {
-        obj.updatedTimestamp = new Date();
-        this.db[table].add(obj);
+        var _this = this;
+        obj.updatedTimestamp = new Date().getTime();
+        return this.db[table].add(obj);
+    }
+    clear(table) {
+        return this.db[table].clear();
+    }
+    getAll(table, cb) {
+        return this.db[table].toArray();
     }
 }
 export default new IndexedDB();
