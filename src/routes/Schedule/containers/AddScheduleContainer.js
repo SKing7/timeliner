@@ -1,22 +1,26 @@
 import { connect } from 'react-redux'
 import React from 'react'
-
-/*  This is a container component. Notice it does not contain any JSX,
-    nor does it import React. This component is **only** responsible for
-    wiring in the actions and state necessary to render a presentational
-    component - in this case, the counter:   */
+import AddSchedule from 'components/AddSchedule'
+import ScheduleList from 'components/ScheduleList'
+import { addAction, fetchListAction } from '../modules/AddSchedule'
 
 
 const mapDispatchToProps = {
+    addAction,
+    fetchListAction
 }
 function mapStateToProps(state) {
+    console.log(state);
     return {
+        items: state.AddSchedule.items
     };
 }
 class AddSchedulePage extends React.Component {
     render () {
         return (
             <div>
+                <AddSchedule addAction={this.props.addAction}></AddSchedule>
+                <ScheduleList items={this.props.items} fetchListAction={this.props.fetchListAction}></ScheduleList>
             </div>
         )
     }

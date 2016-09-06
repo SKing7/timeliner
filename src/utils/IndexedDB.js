@@ -7,11 +7,16 @@ class IndexedDB {
         this.init();
     }
     createTable (name, colsInfo) {
-        this.db.version(this.dbVersion).stores({ [name]: colsInfo});
+        return this.db.version(this.dbVersion++).stores({ [name]: colsInfo});
     }
     init() {
         this.db = new Dexie(this.dbName);
-        this.createTable('project', '++id, name, desc, createdTimestamp, updatedTimestamp');
+        if (!this.db.project) {
+            this.createTable('project', '++id, name, desc, createdTimestamp, updatedTimestamp');
+        }
+        if (!this.db.schedule) {
+            this.createTable('schedule', '++id, name, content, workerId, startDate, endDate, createdTimestamp, updatedTimestamp');
+        }
     }
     openDb() {
     }

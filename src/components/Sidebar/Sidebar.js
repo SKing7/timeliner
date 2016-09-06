@@ -16,7 +16,7 @@ class Header extends React.Component {
         <div>
             <ul className={classes.sideNav}>
               <li>
-                  <Link activeClassName={classes.active}  to="/"><i className="fa fa-fw fa-dashboard"></i>首页</Link>
+                  <Link activeClassName={classes.active}  to="/home"><i className="fa fa-fw fa-dashboard"></i>首页</Link>
               </li>
               <li>
                   <Link activeClassName={classes.active}  to="/addProject"><i className="fa fa-fw"></i>新建项目</Link>

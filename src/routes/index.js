@@ -10,10 +10,11 @@ import Schedule from './Schedule'
 export const createRoutes = (store) => ({
   path: '/',
   component: CoreLayout,
-  indexRoute: Home,
+  indexRoute: { onEnter: (nextState, replace) => replace('/home') },
   childRoutes: [
+    Home(store),
     AddProject(store),
-    ...Schedule(store),
+    Schedule(store),
   ]
 })
 
