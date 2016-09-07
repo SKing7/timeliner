@@ -4,7 +4,7 @@ import AddSchedule from './addSchedule.js'
 import DefaultLayout from 'layouts/DefaultLayout'
 
 export default  (store) => ({
-  path: '/schedule',
+  path: '/schedule/index',
   component: DefaultLayout,
   indexRoute: { onEnter: (nextState, replace) => replace('/schedule/index') },
   childRoutes: [
