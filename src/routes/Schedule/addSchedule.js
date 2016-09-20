@@ -10,10 +10,10 @@ export default (store) => ({
       /*  Webpack - use require callback to define
           dependencies for bundling   */
       const AddContainer = require('./containers/AddScheduleContainer').default
-      const reducer = require('./modules/AddSchedule').default
+      const reducer = require('./modules').default
 
       /*  Add the reducer to the store on key  */
-      injectReducer(store, { key: 'AddSchedule', reducer })
+      injectReducer(store, { key: 'Schedule', reducer })
 
       /*  Return getComponent   */
       cb(null, AddContainer)

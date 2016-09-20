@@ -12,8 +12,6 @@ class ScheduleList extends React.Component {
     }
     render () {
         var listData = this.props.items || [];
-        console.log(listData);
-
         return (
             <div>
                 <h2>{this.props.projectName}</h2>
@@ -26,7 +24,6 @@ class ScheduleList extends React.Component {
                             <th>结束时间</th>
                             <th>负责人</th>
                             <th>职位</th>
-                            <th>操作</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -41,7 +38,6 @@ class ScheduleList extends React.Component {
                                     <td>{m(itemData.endDate).format('YYYY-MM-DD HH:MM:ss')}</td>
                                     <td>{itemData.worker}</td>
                                     <td>{itemData.position}</td>
-                                    <td><Link to='/schedule/add'>新增排期</Link></td>
                                 </tr>
                             );
                         })

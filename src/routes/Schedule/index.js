@@ -1,15 +1,16 @@
 import ScheduleList from './scheduleList.js'
-import ScheduleIndex from './scheduleIndex.js'
+//import ScheduleIndex from './scheduleIndex.js'
 import AddSchedule from './addSchedule.js'
+import ScheduleGraph from './ScheduleGraph.js'
 import DefaultLayout from 'layouts/DefaultLayout'
 
 export default  (store) => ({
-  path: '/schedule/index',
+  path: '/schedule/',
   component: DefaultLayout,
-  indexRoute: { onEnter: (nextState, replace) => replace('/schedule/index') },
+  indexRoute: { onEnter: (nextState, replace) => replace('/schedule/list') },
   childRoutes: [
-    ScheduleIndex(store),
     ScheduleList(store),
     AddSchedule(store),
+    ScheduleGraph(store)
   ]
 })

@@ -9,6 +9,7 @@ export default function addScheduleReducer(state = {}, action) {
             return state;
             break;
         case SHOW_LIST:
+            debugger
             return {...state, items: action.items};
             break;
         default:

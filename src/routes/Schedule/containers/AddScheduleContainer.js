@@ -2,7 +2,7 @@ import { connect } from 'react-redux'
 import React from 'react'
 import AddSchedule from 'components/AddSchedule'
 import ScheduleList from 'components/ScheduleList'
-import { addAction, fetchListAction } from '../modules/AddSchedule'
+import { addAction, fetchListAction } from '../modules'
 
 
 const mapDispatchToProps = {
@@ -10,9 +10,8 @@ const mapDispatchToProps = {
     fetchListAction
 }
 function mapStateToProps(state) {
-    console.log(state);
     return {
-        items: state.AddSchedule.items
+        items: state.Schedule.items
     };
 }
 class AddSchedulePage extends React.Component {

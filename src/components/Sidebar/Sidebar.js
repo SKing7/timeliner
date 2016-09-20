@@ -19,10 +19,7 @@ class Header extends React.Component {
                   <Link activeClassName={classes.active}  to="/home"><i className="fa fa-fw fa-dashboard"></i>首页</Link>
               </li>
               <li>
-                  <Link activeClassName={classes.active}  to="/addProject"><i className="fa fa-fw"></i>新建项目</Link>
-              </li>
-              <li>
-                  <Link activeClassName={classes.active} to="/viewProjectList"><i className="fa fa-fw"></i>查看项目列表</Link>
+                  <Link activeClassName={classes.active}  to="/addProject"><i className="fa fa-fw"></i>项目</Link>
               </li>
               <li>
                   <Link activeClassName={classes.active} to="/schedule/"><i className="fa fa-fw"></i>排期</Link>
