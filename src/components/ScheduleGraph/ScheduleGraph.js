@@ -12,22 +12,27 @@ class ScheduleGraph extends React.Component {
     constructor(props, context){
         super(props, context);
     }
+    componentDidMount() {
+      let relProjectId = this.props.params.id;
+      this.props.fetchListAction({relProjectId})
+    }
     maxSpanWidth(sortedData) {
         var maxWidth = 0;
-        const baseX = sortedData.items[0].startDate;
-        sortedData.items.forEach(function (item) {
+        if (!sortedData.length) return maxWidth;
+        const baseX = sortedData[0].startDate;
+        sortedData.forEach(function (item) {
             maxWidth = Math.max(maxWidth, item.endDate - baseX);
         });
         return maxWidth;
     }
     minStartDate(sortedData) {
         var minDate ;
-        minDate = sortedData.items[0].startDate;
+        if (!sortedData.length) return minDate;
+        minDate = sortedData[0].startDate;
         return minDate;
     }
     sortByStartDate(data) {
-        data.items = data.items || [];
-        data.items.sort(function (i1, i2) {
+        data.sort(function (i1, i2) {
             return i1.startDate - i2.startDate;
         });
     }
@@ -38,27 +43,12 @@ class ScheduleGraph extends React.Component {
     render () {
         let listData = this.props.items || [];
         let data = {
-            name: '排期1', 
-            items: [{
-                worker: 'liuzhe',
-                position: 'fe',
-                startDate: new Date('2016-07-01').getTime(),
-                endDate: new Date('2016-08-01').getTime(),
-            }, {
-                worker: 'liuzhe',
-                position: 'fe',
-                startDate: new Date('2016-07-11').getTime(),
-                endDate: new Date('2016-08-01').getTime(),
-            }, {
-                worker: 'liuzhe',
-                position: 'fe',
-                startDate: new Date('2016-07-11').getTime(),
-                endDate: new Date('2016-08-21').getTime(),
-            }]
+            name: 'proejctName',
+            items: listData
         };
-        this.sortByStartDate(data);
-        let maxWidth = this.maxSpanWidth(data)
-        let minStartDate = this.minStartDate(data)
+        this.sortByStartDate(listData);
+        let maxWidth = this.maxSpanWidth(listData)
+        let minStartDate = this.minStartDate(listData)
         let sizePerTime = 1000 / maxWidth;
         let _this = this;
 
@@ -80,7 +70,7 @@ class ScheduleGraph extends React.Component {
                             let Y = i *  (STROKE_HEIGHT + VERTICAL_SPACE) + COORD_OFFSET + POINTER_WIDTH * 2;
                             return (
 
-                                <Rect onmouseover={_this.mouseoverHandler} data={item} key={item.startDate + Math.random()} x={X} 
+                                <Rect onmouseover={_this.mouseoverHandler} data={item} key={item.startDate + Math.random()} x={X}
                                     y={ Y } width={(item.endDate - item.startDate) * sizePerTime} height={STROKE_HEIGHT}
                                     fill={color().hexString()} strokeWidth={0}/>
                             );

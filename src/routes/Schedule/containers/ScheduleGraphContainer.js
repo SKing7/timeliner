@@ -1,26 +1,25 @@
 import { connect } from 'react-redux'
 import React from 'react'
-import {Link} from 'react-router'
 
 import ScheduleGraph from 'components/ScheduleGraph'
 import {fetchListAction} from '../modules'
 
 const mapDispatchToProps = {
-    fetchListAction
+  fetchListAction
 }
-function mapStateToProps(state) {
-    return {
-        items: state.Schedule.items
-    };
+function mapStateToProps (state) {
+  return {
+    items: state.Schedule.items
+  }
 }
 class ScheduleGraphPage extends React.Component {
-    render () {
-        return (
-            <div>
-                <ScheduleGraph {...this.props}></ScheduleGraph>
-            </div>
-        )
-    }
+  render () {
+    return (
+      <div>
+        <ScheduleGraph {...this.props} />
+      </div>
+    )
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ScheduleGraphPage)

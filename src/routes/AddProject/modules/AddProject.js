@@ -11,7 +11,7 @@ export default function addProjectReducer(state = {}, action) {
             return state;
             break;
         case SHOW_PROJECT_LIST:
-            return {...state, items: action.items }; 
+            return {...state, items: action.items };
             break;
         case GET_PROJECT_LIST:
             return state;
@@ -29,16 +29,16 @@ export function addAction(items) {
         });
     }
 }
-export function projectListAction() {
-    return fetchProjectListAction();
+export function projectListAction(params) {
+    return fetchProjectListAction(params);
 }
 export function showProjectListAction(items) {
     return { type: SHOW_PROJECT_LIST, items}
 }
 
-function fetchProjectListAction() {
+function fetchProjectListAction(params) {
     return (dispatch) => {
-        db.getAll('project').then(function (data) {
+        db.getAll('project', params).then(function (data) {
             return dispatch(showProjectListAction(data))
         });
     }
