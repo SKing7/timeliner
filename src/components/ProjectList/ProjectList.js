@@ -31,7 +31,10 @@ class AddProject extends React.Component {
                 <td>{itemData.name}</td>
                 <td>{itemData.desc}</td>
                 <td>{m(itemData.updatedTimestamp).format('YYYY-MM-DD HH:mm:ss')}</td>
-                <td><Link to={`/schedule/list/${itemData.id}`}>查看排期</Link></td>
+                <td>
+                  <Link to={`/schedule/list/${itemData.id}`}>查看排期</Link>
+                  <Link to={`/schedule/add/${itemData.id}`} className="margin-left-2x">增加排期</Link>
+                </td>
               </tr>
             );
           })

@@ -4,7 +4,7 @@ import classes from './Header.scss'
 
 export const Header = () => (
 
-  <div>
+  <div className={classes.headerWrapper}>
     <nav className={classes.navbarInverse} role="navigation">
         <Link to='/' className={classes.navbarBrand}>Timeliner</Link>
         <IndexLink to='/' activeClassName={classes.activeRoute}></IndexLink>

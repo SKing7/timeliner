@@ -6,15 +6,15 @@ import { addAction, fetchListAction, fetchProjectInfoAction} from '../modules'
 
 
 const mapDispatchToProps = {
-    addAction,
-    fetchListAction,
-    fetchProjectInfoAction
+  addAction,
+  fetchListAction,
+  fetchProjectInfoAction
 }
 function mapStateToProps(state) {
-    return {
-        items: state.Schedule.items,
-        project: state.Schedule.project
-    };
+  return {
+    items: state.Schedule.items,
+    project: state.Schedule.project
+  };
 }
 class AddSchedulePage extends React.Component {
   componentDidMount() {
@@ -23,13 +23,13 @@ class AddSchedulePage extends React.Component {
     });
   }
   render () {
-      return (
-          <div>
-              <h2>项目名：{this.props.project ? this.props.project.name : ''}</h2>
-              <AddSchedule {...this.props}></AddSchedule>
-              <ScheduleList {...this.props}></ScheduleList>
-          </div>
-      )
+    return (
+      <div>
+        <h2>项目名：{this.props.project ? this.props.project.name : ''}</h2>
+        <AddSchedule {...this.props}></AddSchedule>
+        <ScheduleList {...this.props}></ScheduleList>
+      </div>
+    )
   }
 }
 
