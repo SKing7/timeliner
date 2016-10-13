@@ -2,8 +2,9 @@ import { applyMiddleware, compose, createStore } from 'redux'
 import { routerMiddleware } from 'react-router-redux'
 import thunk from 'redux-thunk'
 import makeRootReducer from './reducers'
+import Immutable from 'immutable'
 
-export default (initialState = {}, history) => {
+export default (initialState, history) => {
   // ======================================================
   // Middleware Configuration
   // ======================================================
@@ -23,9 +24,10 @@ export default (initialState = {}, history) => {
   // ======================================================
   // Store Instantiation and HMR Setup
   // ======================================================
+  let reducer = makeRootReducer();
   const store = createStore(
-    makeRootReducer(),
-    initialState,
+    reducer,
+    reducer(initialState),
     compose(
       applyMiddleware(...middleware),
       ...enhancers
